@@ -3438,7 +3438,7 @@ footer{background:var(--dk);border-top:1px solid rgba(200,151,26,0.32);padding:5
 let PRODS = [];
 async function loadProducts() {
     try {
-        const response = await fetch("http://localhost:5000/api/products");
+        const response = await fetch("https://mycakewebsite.onrender.com/api/products");
         const data = await response.json();
 
         PRODS = data.map(product => ({
@@ -3469,7 +3469,7 @@ async function loadProducts() {
         try {
 
             const response = await fetch(
-                "http://localhost:5000/api/products"
+                "https://mycakewebsite.onrender.com/api/products"
             );
 
             const products = await response.json();
@@ -3615,7 +3615,7 @@ async function loadProducts() {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/reviews/admin/all",
+            "https://mycakewebsite.onrender.com/api/reviews/admin/all",
             {
                 method: "GET",
                 headers: {
@@ -3963,7 +3963,7 @@ async function saveAdminProduct() {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/products",
+            "https://mycakewebsite.onrender.com/api/products",
             {
                 method: "POST",
 
@@ -4215,8 +4215,8 @@ async function saveAdminCoupon() {
     // =========================
 
     const url = editId
-        ? `http://localhost:5000/api/coupons/${editId}`
-        : "http://localhost:5000/api/coupons";
+        ? `https://mycakewebsite.onrender.com/api/coupons/${editId}`
+        : "https://mycakewebsite.onrender.com/api/coupons";
 
 
     const method = editId
@@ -4342,7 +4342,7 @@ async function loadAdminCoupons() {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/coupons/admin/all",
+            "https://mycakewebsite.onrender.com/api/coupons/admin/all",
             {
                 headers: {
                     "Authorization": `Bearer ${token}`
@@ -4729,7 +4729,7 @@ async function deleteAdminCoupon(couponId, couponCode) {
     try {
 
         const response = await fetch(
-            `http://localhost:5000/api/coupons/${couponId}`,
+            `https://mycakewebsite.onrender.com/api/coupons/${couponId}`,
             {
                 method: "DELETE",
 
@@ -4782,7 +4782,7 @@ async function toggleAdminCoupon(couponId, newStatus) {
     try {
 
         const response = await fetch(
-            `http://localhost:5000/api/coupons/${couponId}`,
+            `https://mycakewebsite.onrender.com/api/coupons/${couponId}`,
             {
                 method: "PUT",
 
@@ -4854,7 +4854,7 @@ async function toggleAdminCoupon(couponId, newStatus) {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/orders/admin/all",
+            "https://mycakewebsite.onrender.com/api/orders/admin/all",
             {
                 method: "GET",
                 headers: {
@@ -5361,7 +5361,7 @@ async function updateAdminOrderStatus(orderId) {
     try {
 
         const response = await fetch(
-            `http://localhost:5000/api/orders/${orderId}/status`,
+            `https://mycakewebsite.onrender.com/api/orders/${orderId}/status`,
             {
                 method: "PUT",
 
@@ -5688,7 +5688,7 @@ async function addAdminProduct() {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/products",
+            "https://mycakewebsite.onrender.com/api/products",
             {
                 method: "POST",
 
@@ -5773,7 +5773,7 @@ async function editAdminProduct(productId) {
 
         // Get the selected product
         const response = await fetch(
-            `http://localhost:5000/api/products/${productId}`
+            `https://mycakewebsite.onrender.com/api/products/${productId}`
         );
 
         const product = await response.json();
@@ -6053,7 +6053,7 @@ async function updateAdminProduct(productId) {
     try {
 
         const response = await fetch(
-            `http://localhost:5000/api/products/${productId}`,
+            `https://mycakewebsite.onrender.com/api/products/${productId}`,
             {
                 method: "PUT",
 
@@ -6130,7 +6130,7 @@ async function deleteAdminProduct(productId) {
     try {
 
         const response = await fetch(
-            `http://localhost:5000/api/products/${productId}`,
+            `https://mycakewebsite.onrender.com/api/products/${productId}`,
             {
                 method: "DELETE",
 
@@ -6219,7 +6219,7 @@ function openStockEditor(productId, currentStock) {
     try {
 
         const response = await fetch(
-            `http://localhost:5000/api/products/${productId}/stock`,
+            `https://mycakewebsite.onrender.com/api/products/${productId}/stock`,
             {
                 method: "PUT",
 
@@ -7083,7 +7083,7 @@ console.log("ORDER TOTAL:", total);
         console.log("CREATING RAZORPAY ORDER");
 
         const response = await fetch(
-            "http://localhost:5000/api/payment/create-order",
+            "https://mycakewebsite.onrender.com/api/payment/create-order",
             {
                 method: "POST",
 
@@ -7159,7 +7159,7 @@ console.log("ORDER TOTAL:", total);
                     // =========================
 
                     const verifyResponse = await fetch(
-                        "http://localhost:5000/api/payment/verify-payment",
+                        "https://mycakewebsite.onrender.com/api/payment/verify-payment",
                         {
                             method: "POST",
 
@@ -7316,7 +7316,7 @@ console.log("ORDER TOTAL:", total);
 async function saveOrderToDatabase(mongoOrder, token) {
 
     const response = await fetch(
-        "http://localhost:5000/api/orders",
+        "https://mycakewebsite.onrender.com/api/orders",
         {
             method: "POST",
             headers: {
@@ -7387,7 +7387,7 @@ async function trackOrder() {
   try {
 
     const response = await fetch(
-      `http://localhost:5000/api/orders/track/${encodeURIComponent(orderId)}`,
+      `https://mycakewebsite.onrender.com/api/orders/track/${encodeURIComponent(orderId)}`,
       {
         method: 'GET',
         headers: {
@@ -7634,7 +7634,7 @@ async function cancelOrder(orderId){
     const token = localStorage.getItem("authToken");
 
     const response = await fetch(
-      `http://localhost:5000/api/orders/${orderId}/cancel`,
+      `https://mycakewebsite.onrender.com/api/orders/${orderId}/cancel`,
       {
         method: "PUT",
         headers: {
@@ -7678,7 +7678,7 @@ async function loadAdminStats() {
         // ===============================
 
         const ordersResponse = await fetch(
-            'http://localhost:5000/api/orders/admin/all',
+            'https://mycakewebsite.onrender.com/api/orders/admin/all',
             {
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -7700,7 +7700,7 @@ async function loadAdminStats() {
         // ===============================
 
         const productsResponse = await fetch(
-            'http://localhost:5000/api/products'
+            'https://mycakewebsite.onrender.com/api/products'
         );
 
         const products = await productsResponse.json();
@@ -7860,7 +7860,7 @@ async function initAdmin(){
   try {
 
     const response = await fetch(
-      'http://localhost:5000/api/orders/admin/all',
+      'https://mycakewebsite.onrender.com/api/orders/admin/all',
       {
         headers: {
           'Authorization': `Bearer ${token}`
@@ -8085,7 +8085,7 @@ async function loadAdminCustomers() {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/auth/admin/users",
+            "https://mycakewebsite.onrender.com/api/auth/admin/users",
             {
                 headers: {
                     "Authorization": `Bearer ${token}`
@@ -8326,7 +8326,7 @@ async function loadAdminInventory() {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/products",
+            "https://mycakewebsite.onrender.com/api/products",
             {
                 headers: {
                     "Authorization":
@@ -8597,7 +8597,7 @@ async function viewAdminCustomer(customerId) {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/orders/admin/all",
+            "https://mycakewebsite.onrender.com/api/orders/admin/all",
             {
                 headers: {
                     "Authorization": `Bearer ${token}`
@@ -8793,7 +8793,7 @@ async function initOrders(){
     }
 
     const response = await fetch(
-      'http://localhost:5000/api/orders',
+      'https://mycakewebsite.onrender.com/api/orders',
       {
         method: 'GET',
         headers: {
@@ -9221,7 +9221,7 @@ async function applyCheckoutCoupon() {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/coupons/validate",
+            "https://mycakewebsite.onrender.com/api/coupons/validate",
             {
                 method: "POST",
 
@@ -9380,7 +9380,7 @@ async function doLogin(){
   try {
 
     const response = await fetch(
-      'http://localhost:5000/api/auth/login',
+      'https://mycakewebsite.onrender.com/api/auth/login',
       {
         method: 'POST',
 
@@ -9475,7 +9475,7 @@ async function doSignup(){
   try {
 
     const response = await fetch(
-      'http://localhost:5000/api/auth/register',
+      'https://mycakewebsite.onrender.com/api/auth/register',
       {
         method: 'POST',
 
@@ -9508,7 +9508,7 @@ async function doSignup(){
     */
 
     const loginResponse = await fetch(
-      'http://localhost:5000/api/auth/login',
+      'https://mycakewebsite.onrender.com/api/auth/login',
       {
         method: 'POST',
 
@@ -9673,7 +9673,7 @@ async function getNotifications() {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/notifications",
+            "https://mycakewebsite.onrender.com/api/notifications",
             {
                 method: "GET",
                 headers: {
@@ -9946,7 +9946,7 @@ async function markNotificationRead(id) {
 
         const response =
             await fetch(
-                `http://localhost:5000/api/notifications/${id}/read`,
+                `https://mycakewebsite.onrender.com/api/notifications/${id}/read`,
                 {
                     method: "PUT",
                     headers: {
@@ -9993,7 +9993,7 @@ async function markAllNotificationsRead() {
 
         const response =
             await fetch(
-                "http://localhost:5000/api/notifications/read-all",
+                "https://mycakewebsite.onrender.com/api/notifications/read-all",
                 {
                     method: "PUT",
                     headers: {
